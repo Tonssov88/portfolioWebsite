@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Anthony Atanassov</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">AA</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Projects</h1>
+                <p>A collection of technical projects demonstrating hardware-software integration, computer-aided design, and robotics systems</p>
+            </div>
+        </section>
+
+        <section class="projects-list">
+            <div class="container">
+                <div class="project-detail-card">
+                    <div class="project-content-wrapper">
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h2>Gesture-Controlled RC Car: From Scratch</h2>
+                                <span class="project-date">Summer 2025</span>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Raspberry Pi</span>
+                                <span class="tag">OpenCV</span>
+                                <span class="tag">I²C</span>
+                                <span class="tag">L298N Motor Driver</span>
+                            </div>
+                            <p class="project-description">
+                                Designed and built a remote-controlled car from the ground up using Raspberry Pi, L298N motor driver, 
+                                and INA198. The system features real-time hand gesture recognition using computer vision for intuitive 
+                                wireless control.
+                            </p>
+                            <div class="project-challenges">
+                                <h4>Technical Challenges Solved:</h4>
+                                <ul>
+                                    <li>Implemented I²C communication protocol between sensors and Raspberry Pi for reliable data transfer</li>
+                                    <li>Developed Python program using OpenCV to recognize and classify hand gestures in real-time</li>
+                                    <li>Designed motor control interface translating gesture commands to precise movement controls</li>
+                                    <li>Optimized camera processing pipeline to minimize latency between gesture detection and robot response</li>
+                                </ul>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Tonssov88" class="btn btn-small">GitHub Repository</a>
+                            </div>
+                        </div>
+                        <div class="project-image-container">
+                            <img src="assets/gesture-car.jpg" alt="Gesture-Controlled RC Car">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-detail-card">
+                    <div class="project-content-wrapper">
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h2>3-DOF Robotic Arm with Inverse Kinematics</h2>
+                                <span class="project-date">Jan. 2026</span>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">C++</span>
+                                <span class="tag">Arduino</span>
+                                <span class="tag">PCA9685 PWM Driver</span>
+                                <span class="tag">Inverse Kinematics</span>
+                            </div>
+                            <p class="project-description">
+                                Designed and built a 3-degree-of-freedom robotic arm using servo motors, controlled via Arduino 
+                                and PCA9685 PWM driver. Implemented analytical inverse kinematics algorithms to enable precise 
+                                end-effector positioning.
+                            </p>
+                            <div class="project-challenges">
+                                <h4>Technical Challenges Solved:</h4>
+                                <ul>
+                                    <li>Implemented analytical inverse kinematics to compute joint angles from Cartesian target coordinates</li>
+                                    <li>Developed C++ control software with enforced joint constraints for stable and safe motion</li>
+                                    <li>Integrated PCA9685 PWM driver for precise servo control with Arduino microcontroller</li>
+                                    <li>Designed mechanical structure ensuring sufficient range of motion while maintaining structural integrity</li>
+                                </ul>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Tonssov88" class="btn btn-small">GitHub Repository</a>
+                            </div>
+                        </div>
+                        <div class="project-image-container">
+                            <img src="assets/robotic-arm.jpg" alt="3-DOF Robotic Arm">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-detail-card">
+                    <div class="project-content-wrapper">
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h2>8-Bit Breadboard Computer Project</h2>
+                                <span class="project-date">Jan. 2025</span>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Digital Logic</span>
+                                <span class="tag">Assembly Language</span>
+                                <span class="tag">Von Neumann Architecture</span>
+                                <span class="tag">Hardware Design</span>
+                            </div>
+                            <p class="project-description">
+                                Built a functional 8-bit computer from integrated circuits on breadboards following Von Neumann 
+                                architecture principles. The system features custom instruction set implementation and supports 
+                                basic computational operations.
+                            </p>
+                            <div class="project-challenges">
+                                <h4>Technical Challenges Solved:</h4>
+                                <ul>
+                                    <li>Designed and wired complete CPU using discrete logic ICs following Von Neumann architecture</li>
+                                    <li>Programmed assembly routines for arithmetic operations, I/O handling, and memory management</li>
+                                    <li>Tested and debugged complex digital circuits to ensure reliable operation across all modules</li>
+                                    <li>Implemented instruction decoder and control logic for custom instruction set execution</li>
+                                </ul>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Tonssov88" class="btn btn-small">GitHub Repository</a>
+                            </div>
+                        </div>
+                        <div class="project-image-container">
+                            <img src="assets/8bit-computer.jpg" alt="8-Bit Breadboard Computer">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-detail-card">
+                    <div class="project-content-wrapper">
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h2>2D Fighting Game (Python): Turf War</h2>
+                                <span class="project-date">May 2023</span>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Pygame</span>
+                                <span class="tag">Game Development</span>
+                                <span class="tag">Real-time Systems</span>
+                            </div>
+                            <p class="project-description">
+                                Developed a complete 2D fighting game in Python using Pygame framework. The game features advanced 
+                                combat mechanics with responsive controls and real-time physics calculations.
+                            </p>
+                            <div class="project-challenges">
+                                <h4>Technical Challenges Solved:</h4>
+                                <ul>
+                                    <li>Developed real-time input processing system for responsive gameplay controls</li>
+                                    <li>Implemented complex game mechanics including knock-back physics, parrying system, and dash movements</li>
+                                    <li>Created collision detection and response system for accurate hit registration</li>
+                                    <li>Designed state machine architecture for managing character animations and combat states</li>
+                                </ul>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Tonssov88" class="btn btn-small">GitHub Repository</a>
+                            </div>
+                        </div>
+                        <div class="project-image-container">
+                            <img src="assets/turf-war.png" alt="Turf War Fighting Game">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-detail-card">
+                    <div class="project-content-wrapper">
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h2>Q-ARM Robot End-Effector Design Project</h2>
+                                <span class="project-date">Oct-Nov. 2025</span>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">CAD</span>
+                                <span class="tag">Autodesk Inventor</span>
+                                <span class="tag">Mechanical Design</span>
+                                <span class="tag">Prototyping</span>
+                            </div>
+                            <p class="project-description">
+                                Designed a lightweight robotic end-effector for the Q-ARM robot platform using CAD software. 
+                                The design prioritizes weight reduction while maintaining structural integrity and functionality.
+                            </p>
+                            <div class="project-challenges">
+                                <h4>Technical Challenges Solved:</h4>
+                                <ul>
+                                    <li>Designed and iterated lightweight end-effector geometry using CAD software</li>
+                                    <li>Refined mechanical geometry through iterative prototyping to optimize range of motion</li>
+                                    <li>Addressed interference issues through careful geometric analysis and design modifications</li>
+                                    <li>Balanced weight reduction requirements with structural strength and operational reliability</li>
+                                </ul>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Tonssov88" class="btn btn-small">GitHub Repository</a>
+                            </div>
+                        </div>
+                        <div class="project-image-container">
+                            <img src="assets/qarm-effector.jpg" alt="Q-ARM End-Effector">
+                        </div>
+                    </div>
+                </div>
+                <div class="project-detail-card">
+                    <div class="project-content-wrapper">
+                        <div class="project-info">
+                            <div class="project-header">
+                                <h2>Blue Bottle - Gamified Recycling App</h2>
+                                <span class="project-date">WinHacks 2022</span>
+                            </div>
+                            <div class="project-tags">
+                                <span class="tag">Figma</span>
+                                <span class="tag">UI/UX Design</span>
+                                <span class="tag">Computer Vision</span>
+                                <span class="tag">Hackathon Winner</span>
+                            </div>
+                            <p class="project-description">
+                                Winner of Most Social Impact at WinHacks 2022. Designed a gamified recycling app that 
+                                rewards users for recycling water bottles through points, prizes, and social challenges. 
+                                Created comprehensive UI/UX designs and user flows to encourage competition and sustained 
+                                engagement in environmental sustainability.
+                            </p>
+                            <div class="project-challenges">
+                                <h4>Technical Challenges Solved:</h4>
+                                <ul>
+                                    <li>Designed core UI/UX and complete user flows in Figma for intuitive user experience</li>
+                                    <li>Developed gamification mechanics including point systems and social challenges to drive engagement</li>
+                                    <li>Explored computer vision solutions for automated bottle validation and recycling verification</li>
+                                    <li>Created accessible, polished prototype focused on maximizing social and environmental impact</li>
+                                    <li>Addressed key challenge of verifying authentic recycling actions to prevent system abuse</li>
+                                </ul>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://devpost.com/software/bluebottle-dy6ouw" target="_blank" rel="noopener noreferrer" class="btn btn-small">View on Devpost</a>
+                                <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer" class="btn btn-small btn-secondary">Figma Design</a>
+                            </div>
+                        </div>
+                        <div class="project-image-container">
+                            <img src="assets/blue-bottle.png" alt="Blue Bottle Recycling App">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

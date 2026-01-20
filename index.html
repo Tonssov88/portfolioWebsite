@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony Atanassov - Engineering Student</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">AA</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Anthony Atanassov</h1>
+                        <p class="subtitle">Engineering Student | Robotics Enthusiast</p>
+                        <p class="description">
+                            I am a first year Engineering student at McMaster University with hands-on experience in robotics, 
+                            embedded systems, and hardware-software integration through FRC competitions and personal projects.
+                        </p>
+                        <div class="cta-buttons">
+                            <a href="projects.html" class="btn btn-primary">View Projects</a>
+                            <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <div class="image-container">
+                            <img src="assets/profile-photo.jpg" alt="Anthony Atanassov">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills">
+            <div class="container">
+                <h2> My Technical Skills!</h2>
+                <p class="skills-subtitle"></p>
+                
+                <!-- Row 1: Hardware (left) + Image (right) -->
+                <div class="skills-row">
+                    <div class="skill-category-large">
+                        <h3>Hardware</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item" data-skill="arduino-hw">
+                                <span class="skill-name">Arduino</span>
+                                <div class="skill-description">
+                                    Hands-on experience with Arduino Uno, and Nano for various robotics and automation projects.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="raspberry">
+                                <span class="skill-name">Raspberry Pi</span>
+                                <div class="skill-description">
+                                    Built computer vision systems and IoT projects using Raspberry Pi with camera modules and I²C communication protocols.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="roborio">
+                                <span class="skill-name">RoboRio 2.0</span>
+                                <div class="skill-description">
+                                    Programmed and configured RoboRio controllers for FRC competition robots, including sensor integration and motor control.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="soldering">
+                                <span class="skill-name">Soldering & Circuit Assembly</span>
+                                <div class="skill-description">
+                                    Proficient in through-hole and surface-mount soldering techniques for PCB assembly and circuit prototyping.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="machining">
+                                <span class="skill-name">Machine Shop Tools</span>
+                                <div class="skill-description">
+                                    Experience with drill press, lathe, and other machine shop equipment for fabricating custom mechanical parts and components with my time on FRC 1325 Inverse Paradox.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="pc">
+                                <span class="skill-name">PC Assembly</span>
+                                <div class="skill-description">
+                                    Knowledge of computer hardware architecture, component selection, assembly, and troubleshooting. I have built PCs for friends as well as to sell to buyers on the secondhand market.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="skill-image">
+                        <img src="assets/robotInAction.png" alt="Hardware and electronics">
+                    </div>
+                </div>
+
+                <!-- Row 2: Image (left) + Programming (right) -->
+                <div class="skills-row skills-row-reverse">
+                    <div class="skill-image">
+                        <img src="assets/programming-image.png" alt="Programming workspace">
+                    </div>
+                    <div class="skill-category-large">
+                        <h3>Programming</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item" data-skill="python">
+                                <span class="skill-name">Python</span>
+                                <div class="skill-description">
+                                    Primary language for computer vision, data processing, and game development. Used extensively in OpenCV projects and Pygame applications.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="cpp">
+                                <span class="skill-name">C/C++</span>
+                                <div class="skill-description">
+                                    Used for embedded systems programming, robotics control systems, and low-level hardware interfacing with Arduino and microcontrollers.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="arduino">
+                                <span class="skill-name">Arduino</span>
+                                <div class="skill-description">
+                                    Extensive experience programming Arduino for robotics projects, including servo control, sensor integration, and real-time control systems.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="html">
+                                <span class="skill-name">HTML/CSS</span>
+                                <div class="skill-description">
+                                    Front-end web development skills for creating responsive, professional websites and user interfaces.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Row 3: Software & Tools (left) + Image (right) -->
+                <div class="skills-row">
+                    <div class="skill-category-large">
+                        <h3>Software & Tools</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item" data-skill="cad">
+                                <span class="skill-name">CAD (Autodesk Inventor)</span>
+                                <div class="skill-description">
+                                    Designed mechanical components and assemblies for robotics projects, including end-effectors and structural elements.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="git">
+                                <span class="skill-name">Git / GitHub</span>
+                                <div class="skill-description">
+                                    Version control for software projects, collaborative development, and code management across multiple repositories.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="vscode">
+                                <span class="skill-name">VS Code</span>
+                                <div class="skill-description">
+                                    Primary IDE for development with extensions for Python, C++, and web development workflows.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="3dprint">
+                                <span class="skill-name">3D Printing</span>
+                                <div class="skill-description">
+                                    Experience with additive manufacturing for rapid prototyping of mechanical designs and custom parts.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="skill-image">
+                        <img src="assets/tools-image.png" alt="Software and development tools">
+                    </div>
+                </div>
+
+                <!-- Row 4: Image (left) + Core Strengths (right) -->
+                <div class="skills-row skills-row-reverse">
+                    <div class="skill-image">
+                        <img src="assets/teamwork-image.jpg" alt="Team collaboration">
+                    </div>
+                    <div class="skill-category-large">
+                        <h3>Core Strengths</h3>
+                        <ul class="skill-list">
+                            <li class="skill-item" data-skill="teamwork">
+                                <span class="skill-name">Teamwork</span>
+                                <div class="skill-description">
+                                    Proven ability to collaborate effectively in FRC teams, coordinating across electrical, mechanical, and programming subsystems.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="leadership">
+                                <span class="skill-name">Leadership</span>
+                                <div class="skill-description">
+                                    Led FRC Demo Team 9996 as Team Lead, managing project timelines and coordinating team of six members through competition cycle.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="problem">
+                                <span class="skill-name">Problem-Solving</span>
+                                <div class="skill-description">
+                                    Analytical approach to debugging complex systems, from circuit troubleshooting to algorithm optimization.
+                                </div>
+                            </li>
+                            <li class="skill-item" data-skill="initiative">
+                                <span class="skill-name">Initiative</span>
+                                <div class="skill-description">
+                                    Self-driven learner who independently tackles new technologies and completes personal projects from concept to implementation.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="highlight-projects">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="placeholder-img">Gesture Control</div>
+                        </div>
+                        <h3>Gesture-Controlled RC Car</h3>
+                        <p>Built from scratch using Raspberry Pi, with OpenCV-based hand gesture recognition for real-time control.</p>
+                        <a href="projects.html" class="link-arrow">View Details →</a>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="placeholder-img">Robotic Arm</div>
+                        </div>
+                        <h3>3-DOF Robotic Arm</h3>
+                        <p>Designed and programmed with analytical inverse kinematics using Arduino and C++.</p>
+                        <a href="projects.html" class="link-arrow">View Details →</a>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <div class="placeholder-img">8-Bit CPU</div>
+                        </div>
+                        <h3>8-Bit Breadboard Computer</h3>
+                        <p>Built from integrated circuits using Von Neumann architecture with custom assembly programming.</p>
+                        <a href="projects.html" class="link-arrow">View Details →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>
