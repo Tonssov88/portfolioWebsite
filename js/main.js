@@ -5,18 +5,6 @@ const navLinks = document.getElementById('navLinks');
 if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-        
-        // Animate hamburger icon
-        const spans = navToggle.querySelectorAll('span');
-        if (navLinks.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-        } else {
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
     });
 
     // Close mobile menu when clicking on a link
@@ -24,10 +12,6 @@ if (navToggle && navLinks) {
     navItems.forEach(item => {
         item.addEventListener('click', () => {
             navLinks.classList.remove('active');
-            const spans = navToggle.querySelectorAll('span');
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
         });
     });
 
@@ -35,10 +19,6 @@ if (navToggle && navLinks) {
     document.addEventListener('click', (e) => {
         if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
             navLinks.classList.remove('active');
-            const spans = navToggle.querySelectorAll('span');
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
         }
     });
 }
@@ -63,6 +43,26 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Toggle current skill
             this.classList.toggle('active');
+        });
+    });
+
+    // Project Accordion Functionality
+    const accordionHeaders = document.querySelectorAll('.project-accordion-header');
+    
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const accordionItem = this.closest('.project-accordion-item');
+            const isActive = accordionItem.classList.contains('active');
+            
+            // Close all other accordions
+            document.querySelectorAll('.project-accordion-item').forEach(item => {
+                if (item !== accordionItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle current accordion
+            accordionItem.classList.toggle('active');
         });
     });
 });
@@ -131,20 +131,17 @@ const observerOptions = {
 const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('fade-in');
+            fadeObserver.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
 // Apply fade-in to project cards and experience cards
 document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.project-card, .project-detail-card, .experience-card, .skill-category-large');
+    const cards = document.querySelectorAll('.project-card, .project-detail-card, .experience-card, .skill-category-large, .featured-project-item');
     
     cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         fadeObserver.observe(card);
     });
 });

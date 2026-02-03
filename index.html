@@ -49,157 +49,136 @@
             </div>
         </section>
 
-        <section class="skills">
+        <section class="featured-projects">
             <div class="container">
-                <h2> My Technical Skills!</h2>
-                <p class="skills-subtitle"></p>
+                <h2>Featured Projects</h2>
+                <p class="section-subtitle">A showcase of my robotics, embedded systems, and software development work</p>
                 
-                <!-- Row 1: Hardware (left) + Image (right) -->
-                <div class="skills-row">
-                    <div class="skill-category-large">
-                        <h3>Hardware</h3>
-                        <ul class="skill-list">
-                            <li class="skill-item" data-skill="arduino-hw">
-                                <span class="skill-name">Arduino</span>
-                                <div class="skill-description">
-                                    I have hands-on experience with Arduino Uno/Nano across multiple robotics and automation projects. It's my platform of choice for rapid prototyping.
-                                </div>
-                            </li>
-                            <li class="skill-item" data-skill="raspberry">
-                                <span class="skill-name">Raspberry Pi</span>
-                                <div class="skill-description">
-                                    I've built computer vision systems and IoT projects using Raspberry Pi. I'm comfortable working with camera modules, setting up I²C communication, and integrating various sensors for embedded applications.
-                                </div>
-                            </li>
-                            <li class="skill-item" data-skill="roborio">
-                                <span class="skill-name">RoboRio 2.0</span>
-                                <div class="skill-description">
-                                    Through FRC competitions, I've programmed and configured RoboRio controllers for competition robots. This includes integrating sensors, controlling motors, and ensuring everything works reliably under pressure.
-                                </div>
-                            </li>
-                            <li class="skill-item" data-skill="soldering">
-                                <span class="skill-name">Soldering & Circuit Assembly</span>
-                                <div class="skill-description">
-                                    I'm proficient in both through-hole and surface-mount soldering. I can assemble PCBs and prototype circuits 
-                                </div>
-                            </li>
-                            <li class="skill-item" data-skill="machining">
-                                <span class="skill-name">Machine Shop Tools</span>
-                                <div class="skill-description">
-                                    From my time on FRC Team 1325 Inverse Paradoxm, I have experience using drill presses, lathes, and other machine shop equipment to fabricate custom mechanical parts. Sometimes you need to make the exact piece you need, and I'm comfortable doing that.
-                                </div>
-                            </li>
-                            <li class="skill-item" data-skill="pc">
-                                <span class="skill-name">PC Assembly</span>
-                                <div class="skill-description">
-                                    I understand computer hardware architecture inside and out. I can select components, build systems, and troubleshoot hardware issues when things go wrong. I used this knowledge to build and sell PCs out of my bedroom.
-                                </div>
-                            </li>
-                        </ul>
+                <div class="featured-projects-list">
+                    <!-- Project 1: Robotic Arm (Image Right) -->
+                    <div class="featured-project-item">
+                        <div class="featured-project-text">
+                            <h3>3-DOF Robotic Arm with Inverse Kinematics</h3>
+                            <p>Built a 3-degree-of-freedom robotic arm with Arduino and implemented analytical inverse kinematics for precise end-effector positioning (±2mm accuracy). Features a custom C++/Raylib desktop GUI with interactive 3D visualization and drag-and-drop control for real-time robot manipulation.</p>
+                            <div class="project-tags-compact">
+                                <span class="tag">C++</span>
+                                <span class="tag">Arduino</span>
+                                <span class="tag">Inverse Kinematics</span>
+                                <span class="tag">Raylib</span>
+                            </div>
+                            <a href="projects.html#robotic-arm" class="project-link">Learn More →</a>
+                        </div>
+                        <div class="featured-project-image">
+                            <img src="assets/robotic-arm.jpg" alt="3-DOF Robotic Arm">
+                        </div>
                     </div>
-                    <div class="skill-image">
-                        <img src="assets/robotInAction.png" alt="Hardware and electronics">
+
+                    <!-- Project 2: Speed Racer RL (Image Left) -->
+                    <div class="featured-project-item reverse">
+                        <div class="featured-project-text">
+                            <h3>Speed Racer RL - Reinforcement Learning Racing</h3>
+                            <p>Built a custom 2D racing simulator in C++ with a Deep Q-Network agent trained using libtorch. Features LIDAR-style raycasts for perception, custom physics, and reward shaping for autonomous racing behavior.</p>
+                            <div class="project-tags-compact">
+                                <span class="tag">C++</span>
+                                <span class="tag">Reinforcement Learning</span>
+                                <span class="tag">PyTorch</span>
+                                <span class="tag">DQN</span>
+                            </div>
+                            <a href="projects.html#speed-racer" class="project-link">Learn More →</a>
+                        </div>
+                        <div class="featured-project-image">
+                            <img src="assets/speed-racer.png" alt="Speed Racer RL">
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Gesture Car (Image Right) -->
+                    <div class="featured-project-item">
+                        <div class="featured-project-text">
+                            <h3>Gesture-Controlled RC Car</h3>
+                            <p>Designed an RC car controlled by hand gestures using Raspberry Pi, OpenCV, and real-time computer vision. The system processes camera input to detect hand positions and translates them into motor commands for intuitive wireless control.</p>
+                            <div class="project-tags-compact">
+                                <span class="tag">Python</span>
+                                <span class="tag">OpenCV</span>
+                                <span class="tag">Raspberry Pi</span>
+                            </div>
+                            <a href="projects.html#gesture-car" class="project-link">Learn More →</a>
+                        </div>
+                        <div class="featured-project-image">
+                            <img src="assets/gesture-car.jpg" alt="Gesture-Controlled RC Car">
+                        </div>
+                    </div>
+
+                    <!-- Project 4: 8-Bit Computer (Image Left) -->
+                    <div class="featured-project-item reverse">
+                        <div class="featured-project-text">
+                            <h3>8-Bit Breadboard Computer</h3>
+                            <p>Built a functional 8-bit computer from integrated circuits following Von Neumann architecture with custom instruction set implementation. The system demonstrates fundamental computing principles through hands-on hardware design.</p>
+                            <div class="project-tags-compact">
+                                <span class="tag">Digital Logic</span>
+                                <span class="tag">Assembly</span>
+                                <span class="tag">Hardware Design</span>
+                            </div>
+                            <a href="projects.html#8bit-computer" class="project-link">Learn More →</a>
+                        </div>
+                        <div class="featured-project-image">
+                            <img src="assets/8bit-computer.jpg" alt="8-Bit Breadboard Computer">
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Turf War Game (Image Right) -->
+                    <div class="featured-project-item">
+                        <div class="featured-project-text">
+                            <h3>2D Fighting Game: Turf War</h3>
+                            <p>Developed a complete 2D fighting game in Python with advanced combat mechanics, responsive controls, and real-time physics. Features include a sophisticated state machine for character animations, collision detection, and custom combat systems.</p>
+                            <div class="project-tags-compact">
+                                <span class="tag">Python</span>
+                                <span class="tag">Pygame</span>
+                                <span class="tag">Game Dev</span>
+                            </div>
+                            <a href="projects.html#turf-war" class="project-link">Learn More →</a>
+                        </div>
+                        <div class="featured-project-image">
+                            <img src="assets/turf-war.png" alt="Turf War Fighting Game">
+                        </div>
+                    </div>
+
+                    <!-- Project 6: Q-ARM End-Effector (Image Left) -->
+                    <div class="featured-project-item reverse">
+                        <div class="featured-project-text">
+                            <h3>Q-ARM Robot End-Effector Design</h3>
+                            <p>Designed a lightweight robotic end-effector using CAD, prioritizing weight reduction while maintaining structural integrity. The project involved iterative prototyping and geometric optimization to achieve optimal performance.</p>
+                            <div class="project-tags-compact">
+                                <span class="tag">CAD</span>
+                                <span class="tag">Autodesk Inventor</span>
+                                <span class="tag">Mechanical Design</span>
+                            </div>
+                            <a href="projects.html#qarm-effector" class="project-link">Learn More →</a>
+                        </div>
+                        <div class="featured-project-image">
+                            <img src="assets/qarm-effector.jpg" alt="Q-ARM End-Effector">
+                        </div>
+                    </div>
+
+                    <!-- Project 7: Blue Bottle (Image Right) -->
+                    <div class="featured-project-item">
+                        <div class="featured-project-text">
+                            <h3>Blue Bottle - Gamified Recycling App</h3>
+                            <p>Winner of Most Social Impact at WinHacks 2022. Designed a gamified recycling app with comprehensive UI/UX and social challenges. The app encourages sustainable behavior through competition, rewards, and community engagement.</p>
+                            <div class="project-tags-compact">
+                                <span class="tag">Figma</span>
+                                <span class="tag">UI/UX</span>
+                                <span class="tag">Hackathon Winner</span>
+                            </div>
+                            <a href="projects.html#blue-bottle" class="project-link">Learn More →</a>
+                        </div>
+                        <div class="featured-project-image smaller">
+                            <img src="assets/blue-bottle.png" alt="Blue Bottle Recycling App">
+                        </div>
                     </div>
                 </div>
 
-                <!-- Row 2: Image (left) + Programming (right) -->
-                <div class="skills-row skills-row-reverse">
-                    <div class="skill-image">
-                        <img src="assets/programming-image.png" alt="Programming workspace">
-                    </div>
-                    <div class="skill-category-large">
-                        <h3>Programming</h3>
-                        <ul class="skill-list">
-                            <li class="skill-item" data-skill="python">
-                                <span class="skill-name">Python</span>
-                                <div class="skill-description">
-                                    I use Python as my go-to language for computer vision and game development. I've built projects with OpenCV for real-time image processing and used Pygame to create interactive applications with custom game mechanics.
-                                </div>
-                            </li>
-                            <li class="skill-item" data-skill="cpp">
-                                <span class="skill-name">C/C++</span>
-                                <div class="skill-description">
-                                    I use C/C++ for embedded systems programming, robotics control systems, and low-level hardware interfacing with Arduino and microcontrollers.
-                                </div>
-                            </li>
-                            <li class="skill-item" data-skill="arduino">
-                                <span class="skill-name">Arduino</span>
-                                <div class="skill-description">
-                                    I've spent a lot of time programming Arduino boards for my robotics projects. From controlling servo motors to integrating sensors and building real-time control systems, Arduino has been central to bringing my hardware ideas to life.
-                            </li>
-                            <li class="skill-item" data-skill="html">
-                                <span class="skill-name">HTML/CSS</span>
-                                <div class="skill-description">
-                                    I know my way around front-end web development. I can build responsive, professional websites from scratch - like this one!                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Row 3: Software & Tools (left) + Image (right) -->
-                <div class="skills-row">
-                    <div class="skill-category-large">
-                        <h3>Software & Tools</h3>
-                        <ul class="skill-list">
-                            <li class="skill-item" data-skill="cad">
-                                <span class="skill-name">CAD (Autodesk Inventor)</span>
-                                <div class="skill-description">
-                                    I use CAD to design mechanical components and assemblies for my robotics projects. I've designed everything from end-effectors to structural elements, iterating through prototypes to get the design just right. I am actively using this for school as well.
-                                </div>
-                            </li>
-                            <li class="skill-item" data-skill="vscode">
-                                <span class="skill-name">VS Code</span>
-                                <div class="skill-description">
-                                    This is my main IDE for development.
-                                </div>
-                            </li>
-                            <li class="skill-item" data-skill="3dprint">
-                                <span class="skill-name">3D Printing</span>
-                                <div class="skill-description">
-                                    I have experience designing parts with 3D printing in mind. I have a Creality K1 Speedy at home that I use for personal projects and rapid prototyping.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="skill-image">
-                        <img src="assets/tools-image.png" alt="Software and development tools">
-                    </div>
-                </div>
-
-                <!-- Row 4: Image (left) + Core Strengths (right) -->
-                <div class="skills-row skills-row-reverse">
-                    <div class="skill-image">
-                        <img src="assets/teamwork-image.jpg" alt="Team collaboration">
-                    </div>
-                    <div class="skill-category-large">
-                        <h3>Core Strengths</h3>
-                        <ul class="skill-list">
-                            <li class="skill-item" data-skill="teamwork">
-                                <span class="skill-name">Teamwork</span>
-                                <div class="skill-description">
-                                    Proven ability to collaborate effectively in FRC teams, coordinating across electrical, mechanical, and programming subsystems.
-                                </div>
-                            </li>
-                            <li class="skill-item" data-skill="leadership">
-                                <span class="skill-name">Leadership</span>
-                                <div class="skill-description">
-                                    Led FRC Demo Team 9996 as Team Lead, managing project timelines and coordinating team of six members through competition cycle.
-                                </div>
-                            </li>
-                            <li class="skill-item" data-skill="problem">
-                                <span class="skill-name">Problem-Solving</span>
-                                <div class="skill-description">
-                                    Analytical approach to debugging complex systems, from circuit troubleshooting to algorithm optimization.
-                                </div>
-                            </li>
-                            <li class="skill-item" data-skill="initiative">
-                                <span class="skill-name">Initiative</span>
-                                <div class="skill-description">
-                                    Self-driven learner who independently tackles new technologies and completes personal projects from concept to implementation.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                <div class="view-all-projects">
+                    <a href="projects.html" class="btn btn-primary">View All Projects</a>
                 </div>
             </div>
         </section>

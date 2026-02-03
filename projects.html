@@ -28,227 +28,545 @@
         <section class="page-header">
             <div class="container">
                 <h1>Projects</h1>
-                <p>A collection of technical projects demonstrating hardware-software integration, computer-aided design, and robotics systems</p>
+                <p>Deep dive into my technical projects - click any project to expand for full details</p>
             </div>
         </section>
 
         <section class="projects-list">
             <div class="container">
-                <div class="project-detail-card">
-                    <div class="project-content-wrapper">
-                        <div class="project-info">
-                            <div class="project-header">
+                <!-- Project 1: Robotic Arm -->
+                <div class="project-accordion-item">
+                    <div class="project-accordion-header">
+                        <div class="project-header-content">
+                            <div class="project-thumbnail">
+                                <img src="assets/robotic-arm.jpg" alt="3-DOF Robotic Arm">
+                            </div>
+                            <div class="project-title-section">
                                 <h2>3-DOF Robotic Arm with Inverse Kinematics</h2>
-                                <span class="project-date">Jan. 2026</span>
-                            </div>
-                            <div class="project-tags">
-                                <span class="tag">C++</span>
-                                <span class="tag">Arduino</span>
-                                <span class="tag">PCA9685 PWM Driver</span>
-                                <span class="tag">Inverse Kinematics</span>
-                            </div>
-                            <p class="project-description">
-                                Designed and built a 3-degree-of-freedom robotic arm using servo motors, controlled via Arduino 
-                                and PCA9685 PWM driver. Implemented analytical inverse kinematics algorithms to enable precise 
-                                end-effector positioning.
-                            </p>
-                            <div class="project-challenges">
-                                <h4>Technical Challenges Solved:</h4>
-                                <ul>
-                                    <li>Implemented analytical inverse kinematics to compute joint angles from Cartesian target coordinates</li>
-                                    <li>Utilized linear interpolation to generate smooth motion between start and end positions in 3D space</li>
-                                    <li>Developed C++ control software with enforced joint constraints for stable and safe motion</li>
-                                    <li>Integrated PCA9685 PWM driver for precise servo control with Arduino Nano microcontroller</li>
-                                    <li>Designed mechanical structure ensuring sufficient range of motion while maintaining structural integrity</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Tonssov88/3dof-robot-arm-ik" class="btn btn-small btn-secondary">GitHub Repository</a>
+                                <p class="project-summary">Arduino-powered robotic arm with analytical inverse kinematics and interactive 3D control dashboard</p>
+                                <div class="project-tags">
+                                    <span class="tag">C++</span>
+                                    <span class="tag">Arduino</span>
+                                    <span class="tag">Inverse Kinematics</span>
+                                    <span class="tag">Raylib</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="project-image-container">
-                            <img src="assets/robotic-arm.jpg" alt="3-DOF Robotic Arm">
+                        <button class="accordion-toggle" aria-label="Expand project details">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="project-accordion-content">
+                        <div class="project-expanded-layout">
+                            <div class="project-image-large">
+                                <img src="assets/robotic-arm.jpg" alt="3-DOF Robotic Arm">
+                            </div>
+                            <div class="project-details">
+                                <h3>Project Overview</h3>
+                                <p>
+                                    This project implements a complete robot arm control system combining embedded firmware with desktop visualization. 
+                                    The Arduino runs a real-time inverse kinematics engine that converts 3D coordinates to joint angles and controls 
+                                    servos with smooth interpolation. What makes this project unique is the custom desktop dashboard built with Raylib 
+                                    that provides interactive 3D visualization - you can literally click and drag the end effector in 3D space, and the 
+                                    physical robot arm moves in real-time to match.
+                                </p>
+                                <p>
+                                    The system achieves ±2mm positioning accuracy across a 210mm workspace using a geometric inverse kinematics solution. 
+                                    The Arduino firmware implements Cartesian-space path planning with 20-step interpolation for fluid movement, while 
+                                    the desktop GUI provides intuitive drag-and-drop control alongside precise numerical coordinate input. Serial 
+                                    communication at 115200 baud ensures seamless PC-to-robot coordination with minimal latency.
+                                </p>
+                                
+                                <h3>Technical Implementation</h3>
+                                <ul class="technical-details">
+                                    <li><strong>Inverse Kinematics Engine:</strong> Custom geometric solution using law of cosines and triangle decomposition for 3-DOF manipulation with ±2mm accuracy over 210mm workspace</li>
+                                    <li><strong>Interactive 3D Dashboard:</strong> C++/Raylib desktop application with real-time 3D visualization, drag-and-drop end effector control, and orbital camera for inspection</li>
+                                    <li><strong>Smooth Motion Planning:</strong> Cartesian-space linear interpolation with 20-step path generation creates straight-line trajectories and fluid movement</li>
+                                    <li><strong>Hardware Integration:</strong> PCA9685 16-channel PWM driver via I²C provides 12-bit servo control resolution; 3× MG996R servos powered by dedicated 5V/3A supply</li>
+                                    <li><strong>Safety Systems:</strong> Workspace boundary validation, self-collision prevention via elbow angle constraints, and per-servo calibration for accurate positioning</li>
+                                    <li><strong>Dual Control Modes:</strong> IK mode for position control via 3D coordinates, manual mode for direct servo angle control during testing and diagnostics</li>
+                                </ul>
+
+                                <h3>Key Challenges</h3>
+                                <p>
+                                    Building the GUI was a major learning curve. I had to implement ray casting to convert mouse clicks into 3D world 
+                                    coordinates, handle orbital camera controls with quaternions, and render the arm in real-time while maintaining 
+                                    smooth serial communication. The trickiest part was making the drag-and-drop feel natural - I needed to constrain 
+                                    the end effector to the robot's reachable workspace while the user dragged it around. If they tried to move it 
+                                    somewhere impossible, the system had to smoothly clamp to the nearest valid position rather than just failing.
+                                </p>
+                                <p>
+                                    On the embedded side, debugging the inverse kinematics was challenging. Small errors in the geometric derivations 
+                                    would cause the arm to move to incorrect positions or twist into singularities where the elbow "flipped" 
+                                    unexpectedly. I had to carefully verify each step of the mathematical solution and add elbow angle constraints 
+                                    to prevent self-collisions. The interpolation system also required careful tuning - too fast and the servos would 
+                                    jitter, too slow and the motion felt sluggish. Running everything within the Arduino's 2KB RAM constraint required 
+                                    memory-optimized code and non-blocking architecture for responsive control.
+                                </p>
+
+                                <div class="project-links">
+                                    <a href="https://github.com/Tonssov88/3dof-robot-arm-ik" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                        </svg>
+                                        View on GitHub
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-detail-card">
-                    <div class="project-content-wrapper">
-                        <div class="project-info">
-                            <div class="project-header">
+
+                <!-- Project 2: Speed Racer RL -->
+                <div class="project-accordion-item">
+                    <div class="project-accordion-header">
+                        <div class="project-header-content">
+                            <div class="project-thumbnail">
+                                <img src="assets/speed-racer.png" alt="Speed Racer RL">
+                            </div>
+                            <div class="project-title-section">
+                                <h2>Speed Racer RL - Reinforcement Learning Racing</h2>
+                                <p class="project-summary">Custom 2D racing simulator with Deep Q-Network agent trained using C++ and libtorch</p>
+                                <div class="project-tags">
+                                    <span class="tag">C++</span>
+                                    <span class="tag">Reinforcement Learning</span>
+                                    <span class="tag">PyTorch</span>
+                                    <span class="tag">DQN</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="accordion-toggle" aria-label="Expand project details">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="project-accordion-content">
+                        <div class="project-expanded-layout">
+                            <div class="project-image-large">
+                                <img src="assets/speed-racer.png" alt="Speed Racer RL">
+                            </div>
+                            <div class="project-details">
+                                <h3>Project Overview</h3>
+                                <p>
+                                    Speed Racer RL is a reinforcement learning project built from scratch, featuring a custom 2D top-down racing simulator 
+                                    written entirely in C++. The project trains a Deep Q-Network (DQN) agent to autonomously navigate racing tracks using 
+                                    LIDAR-style raycasts for environmental perception. Unlike many RL projects that rely on pre-built game engines or 
+                                    simulation frameworks, this system implements everything from the physics engine to the neural network training loop, 
+                                    providing complete control over the learning environment and agent behavior.
+                                </p>
+                                <p>
+                                    The simulator features custom physics including acceleration, drag, steering dynamics, and collision detection with both 
+                                    walls and grass. A checkpoint and lap system tracks progress, while the DQN agent learns optimal racing lines through 
+                                    trial and error. Training runs headless for performance, while trained models can be visualized in real-time using Raylib. 
+                                    The project demonstrates the complete pipeline from environment design to agent training to behavioral analysis, showing 
+                                    how autonomous racing behavior emerges from reward shaping and experience replay.
+                                </p>
+                                
+                                <h3>Technical Implementation</h3>
+                                <ul class="technical-details">
+                                    <li><strong>Custom Physics Engine:</strong> Implemented deterministic step-based simulation with realistic vehicle dynamics including speed, friction, steering response, and collision handling</li>
+                                    <li><strong>Perception System:</strong> 13 LIDAR-style raycasts spanning -90° to +90° provide normalized distance measurements, creating an 18-dimensional observation space including speed, heading, and position</li>
+                                    <li><strong>Deep Q-Network:</strong> Vanilla DQN implementation using libtorch (PyTorch C++) with experience replay buffer and epsilon-greedy exploration strategy</li>
+                                    <li><strong>Reward Shaping:</strong> Multi-component reward function balancing checkpoint progress, speed incentives, lap completion bonuses, and penalties for collisions, grass driving, and idle behavior</li>
+                                    <li><strong>Training Infrastructure:</strong> Headless training mode for performance with periodic model checkpointing, plus visual replay system using Raylib for behavior analysis</li>
+                                </ul>
+
+                                <h3>Key Challenges</h3>
+                                <p>
+                                    One of the biggest challenges was reward shaping to produce stable racing behavior. Early reward functions led to 
+                                    degenerate strategies like hugging walls or driving in circles around checkpoints. I had to carefully tune the balance 
+                                    between progress rewards, speed incentives, and collision penalties. Too much emphasis on speed caused reckless driving, 
+                                    while too much penalty for collisions led to overly conservative behavior that never completed laps.
+                                </p>
+                                <p>
+                                    Another challenge was managing the exploration-exploitation tradeoff. I observed an interesting training pattern: early 
+                                    models drove conservatively but reliably completed laps, while later training often led to performance degradation as the 
+                                    agent over-optimized for speed and started crashing. The solution was fine-tuning from stable checkpoints with reduced 
+                                    learning rates and lower epsilon floors, which significantly improved both speed and stability. This taught me that 
+                                    reinforcement learning isn't always monotonically improving - sometimes you need to step back and refine rather than 
+                                    continue pushing forward.
+                                </p>
+
+                                <div class="project-links">
+                                    <a href="https://github.com/Tonssov88/speed-racer-rl" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                        </svg>
+                                        View on GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Gesture Car -->
+                <div class="project-accordion-item">
+                    <div class="project-accordion-header">
+                        <div class="project-header-content">
+                            <div class="project-thumbnail">
+                                <img src="assets/gesture-car.jpg" alt="Gesture-Controlled RC Car">
+                            </div>
+                            <div class="project-title-section">
                                 <h2>Gesture-Controlled RC Car</h2>
-                                <span class="project-date">Summer 2025</span>
-                            </div>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">Raspberry Pi</span>
-                                <span class="tag">OpenCV</span>
-                                <span class="tag">I²C</span>
-                                <span class="tag">L298N Motor Driver</span>
-                            </div>
-                            <p class="project-description">
-                                Designed and built a remote-controlled car from the ground up using Raspberry Pi, L298N motor driver, 
-                                and INA198. The system features real-time hand gesture recognition using computer vision for intuitive 
-                                wireless control.
-                            </p>
-                            <div class="project-challenges">
-                                <h4>Technical Challenges Solved:</h4>
-                                <ul>
-                                    <li>Implemented I²C communication protocol between sensors and Raspberry Pi for reliable data transfer</li>
-                                    <li>Developed Python program using OpenCV to recognize and classify hand gestures in real-time</li>
-                                    <li>Designed motor control interface translating gesture commands to precise movement controls</li>
-                                    <li>Optimized camera processing pipeline to minimize latency between gesture detection and robot response</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Tonssov88/RC-Car-Gesture-Detection-Driving" class="btn btn-small btn-secondary">GitHub Repository</a>
+                                <p class="project-summary">Computer vision-based RC car controlled by hand gestures using OpenCV and Raspberry Pi</p>
+                                <div class="project-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">OpenCV</span>
+                                    <span class="tag">Raspberry Pi</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="project-image-container scale-down">
-                            <img src="assets/gesture-car.jpg" alt="Gesture-Controlled RC Car">
-                        </div>
+                        <button class="accordion-toggle" aria-label="Expand project details">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
                     </div>
-                </div>
-                <div class="project-detail-card">
-                    <div class="project-content-wrapper">
-                        <div class="project-info">
-                            <div class="project-header">
-                                <h2>8-Bit Breadboard Computer Project</h2>
-                                <span class="project-date">Jan. 2025</span>
+                    <div class="project-accordion-content">
+                        <div class="project-expanded-layout">
+                            <div class="project-image-large">
+                                <img src="assets/gesture-car.jpg" alt="Gesture-Controlled RC Car">
                             </div>
-                            <div class="project-tags">
-                                <span class="tag">Digital Logic</span>
-                                <span class="tag">Assembly Language</span>
-                                <span class="tag">Von Neumann Architecture</span>
-                                <span class="tag">Hardware Design</span>
-                            </div>
-                            <p class="project-description">
-                                Built a functional 8-bit computer from integrated circuits on breadboards following Von Neumann 
-                                architecture principles. The system features custom instruction set implementation and supports 
-                                basic computational operations.
-                            </p>
-                            <div class="project-challenges">
-                                <h4>Technical Challenges Solved:</h4>
-                                <ul>
-                                    <li>Designed and wired complete CPU using discrete logic ICs following Von Neumann architecture</li>
-                                    <li>Programmed assembly routines for arithmetic operations, I/O handling, and memory management</li>
-                                    <li>Tested and debugged complex digital circuits to ensure reliable operation across all modules</li>
-                                    <li>Implemented instruction decoder and control logic for custom instruction set execution</li>
+                            <div class="project-details">
+                                <h3>Project Overview</h3>
+                                <p>
+                                    This project combines computer vision, embedded systems, and robotics to create an RC car that responds to hand 
+                                    gestures captured by a camera. The system uses a Raspberry Pi running OpenCV to process video frames in real-time, 
+                                    detect hand positions and gestures, and translate them into motor control commands. The car features a custom-built 
+                                    chassis, L298N motor driver for controlling DC motors, and wireless communication for responsive control.
+                                </p>
+                                <p>
+                                    The computer vision pipeline uses color-based segmentation and contour detection to identify hand positions within 
+                                    the camera frame. Different hand positions in the frame correspond to different driving commands - hands in the 
+                                    upper portion drive forward, lower portion for reverse, and left/right positioning for turning. This creates an 
+                                    intuitive control scheme that feels natural after a brief learning period.
+                                </p>
+                                
+                                <h3>Technical Implementation</h3>
+                                <ul class="technical-details">
+                                    <li><strong>Computer Vision:</strong> OpenCV processes camera frames to detect hand position using HSV color space conversion and contour analysis</li>
+                                    <li><strong>Gesture Recognition:</strong> Hand position within frame quadrants maps to directional commands (forward, backward, left, right)</li>
+                                    <li><strong>Motor Control:</strong> L298N H-bridge driver enables bidirectional DC motor control with PWM speed regulation</li>
+                                    <li><strong>I²C Communication:</strong> Reliable sensor data transfer between Raspberry Pi and motor controller using I²C protocol</li>
+                                    <li><strong>Latency Optimization:</strong> Frame processing pipeline optimized to minimize delay between gesture and robot response</li>
                                 </ul>
+
+                                <h3>Key Challenges</h3>
+                                <p>
+                                    The main challenge was achieving low enough latency for responsive control. Initial implementations had noticeable 
+                                    lag between hand movements and car response, making it difficult to drive accurately. I optimized the computer vision 
+                                    pipeline by reducing frame resolution, implementing efficient contour detection algorithms, and minimizing unnecessary 
+                                    processing. Another challenge was handling varying lighting conditions, which I addressed through adaptive thresholding 
+                                    and allowing users to calibrate the color detection range for their environment.
+                                </p>
+
+                                <div class="project-links">
+                                    <a href="https://github.com/Tonssov88/RC-Car-Gesture-Detection-Driving" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                        </svg>
+                                        View on GitHub
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="project-image-container">
-                            <img src="assets/8bit-computer.jpg" alt="8-Bit Breadboard Computer">
                         </div>
                     </div>
                 </div>
 
-                <div class="project-detail-card">
-                    <div class="project-content-wrapper">
-                        <div class="project-info">
-                            <div class="project-header">
-                                <h2>2D Fighting Game (Python): Turf War</h2>
-                                <span class="project-date">May 2023</span>
+                <!-- Project 3: 8-Bit Computer -->
+                <div class="project-accordion-item">
+                    <div class="project-accordion-header">
+                        <div class="project-header-content">
+                            <div class="project-thumbnail">
+                                <img src="assets/8bit-computer.jpg" alt="8-Bit Breadboard Computer">
                             </div>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">Pygame</span>
-                                <span class="tag">Game Development</span>
-                                <span class="tag">Real-time Systems</span>
-                            </div>
-                            <p class="project-description">
-                                Developed a complete 2D fighting game in Python using Pygame framework. The game features advanced 
-                                combat mechanics with responsive controls and real-time physics calculations.
-                            </p>
-                            <div class="project-challenges">
-                                <h4>Technical Challenges Solved:</h4>
-                                <ul>
-                                    <li>Developed real-time input processing system for responsive gameplay controls</li>
-                                    <li>Implemented complex game mechanics including knock-back physics, parrying system, and dash movements</li>
-                                    <li>Created collision detection and response system for accurate hit registration</li>
-                                    <li>Designed state machine architecture for managing character animations and combat states</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Tonssov88/TurfWar" class="btn btn-small btn-secondary">GitHub Repository</a>
+                            <div class="project-title-section">
+                                <h2>8-Bit Breadboard Computer</h2>
+                                <p class="project-summary">Functional 8-bit computer built from integrated circuits following Von Neumann architecture</p>
+                                <div class="project-tags">
+                                    <span class="tag">Digital Logic</span>
+                                    <span class="tag">Assembly</span>
+                                    <span class="tag">Hardware Design</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="project-image-container">
-                            <img src="assets/turf-war.png" alt="Turf War Fighting Game">
+                        <button class="accordion-toggle" aria-label="Expand project details">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="project-accordion-content">
+                        <div class="project-expanded-layout">
+                            <div class="project-image-large">
+                                <img src="assets/8bit-computer.jpg" alt="8-Bit Breadboard Computer">
+                            </div>
+                            <div class="project-details">
+                                <h3>Project Overview</h3>
+                                <p>
+                                    This project involved building a complete 8-bit computer from discrete logic ICs on breadboards. The computer follows 
+                                    Von Neumann architecture principles with a custom instruction set, featuring components like an ALU, registers, program 
+                                    counter, instruction decoder, and RAM. The goal was to understand computer architecture at the hardware level by 
+                                    implementing each component from basic logic gates and seeing how they work together to execute programs.
+                                </p>
+                                <p>
+                                    The system can execute a custom assembly language I designed, with instructions for arithmetic operations, memory access, 
+                                    conditional branching, and I/O. Building this computer taught me how high-level programming languages are ultimately 
+                                    translated down to simple electrical signals controlling logic gates. Every line of code, every function call, every 
+                                    loop - it all reduces to patterns of voltage changes across wires.
+                                </p>
+                                
+                                <h3>Technical Implementation</h3>
+                                <ul class="technical-details">
+                                    <li><strong>Von Neumann Architecture:</strong> Shared memory space for both program instructions and data, with fetch-decode-execute cycle</li>
+                                    <li><strong>8-bit ALU:</strong> Arithmetic Logic Unit built from 74LS181 ICs performs addition, subtraction, and logical operations</li>
+                                    <li><strong>Control Logic:</strong> Instruction decoder using ROM and logic gates generates control signals for each instruction type</li>
+                                    <li><strong>Memory System:</strong> 16 bytes of RAM using 74LS189 ICs for storing both program and data</li>
+                                    <li><strong>Clock System:</strong> 555 timer IC generates clock signal with adjustable frequency for stepping through instructions</li>
+                                </ul>
+
+                                <h3>Key Challenges</h3>
+                                <p>
+                                    Debugging was extremely challenging since there's no debugger or print statements - just voltage levels on wires. I had 
+                                    to use LEDs and logic probes to trace signals through the system and identify where things went wrong. One particularly 
+                                    frustrating bug took hours to find: a single wire was in the wrong breadboard hole, causing intermittent connections that 
+                                    only failed sometimes. This project taught me patience and systematic debugging methodology.
+                                </p>
+
+                                <div class="project-links">
+                                    <a href="https://github.com/Tonssov88" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                        </svg>
+                                        View on GitHub
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-detail-card">
-                    <div class="project-content-wrapper">
-                        <div class="project-info">
-                            <div class="project-header">
-                                <h2>Q-ARM Robot End-Effector Design Project</h2>
-                                <span class="project-date">Oct-Nov. 2025</span>
+                <!-- Project 4: Turf War -->
+                <div class="project-accordion-item">
+                    <div class="project-accordion-header">
+                        <div class="project-header-content">
+                            <div class="project-thumbnail">
+                                <img src="assets/turf-war.png" alt="Turf War Fighting Game">
                             </div>
-                            <div class="project-tags">
-                                <span class="tag">CAD</span>
-                                <span class="tag">Autodesk Inventor</span>
-                                <span class="tag">Mechanical Design</span>
-                                <span class="tag">Prototyping</span>
-                            </div>
-                            <p class="project-description">
-                                Designed a lightweight robotic end-effector for the Q-ARM robot platform using CAD software. 
-                                The design prioritizes weight reduction while maintaining structural integrity and functionality.
-                            </p>
-                            <div class="project-challenges">
-                                <h4>Technical Challenges Solved:</h4>
-                                <ul>
-                                    <li>Designed and iterated lightweight end-effector geometry using CAD software</li>
-                                    <li>Refined mechanical geometry through iterative prototyping to optimize range of motion</li>
-                                    <li>Addressed interference issues through careful geometric analysis and design modifications</li>
-                                    <li>Balanced weight reduction requirements with structural strength and operational reliability</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Tonssov88" class="btn btn-small btn-secondary">GitHub Repository</a>
+                            <div class="project-title-section">
+                                <h2>2D Fighting Game: Turf War</h2>
+                                <p class="project-summary">Complete 2D fighting game with advanced combat mechanics and physics-based interactions</p>
+                                <div class="project-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">Pygame</span>
+                                    <span class="tag">Game Development</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="project-image-container">
-                            <img src="assets/qarm-effector.jpg" alt="Q-ARM End-Effector">
+                        <button class="accordion-toggle" aria-label="Expand project details">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="project-accordion-content">
+                        <div class="project-expanded-layout">
+                            <div class="project-image-large">
+                                <img src="assets/turf-war.png" alt="Turf War Fighting Game">
+                            </div>
+                            <div class="project-details">
+                                <h3>Project Overview</h3>
+                                <p>
+                                    Turf War is a 2D fighting game I developed in Python using the Pygame framework. The game features two-player local 
+                                    combat with a variety of moves including attacks, blocking, dashing, and a parry system. I designed the combat mechanics 
+                                    to be skill-based, rewarding timing and strategy over button mashing. The game includes custom sprite animations, 
+                                    physics-based knockback, and responsive controls that make the combat feel satisfying and engaging.
+                                </p>
+                                <p>
+                                    This project was my introduction to game development and taught me about game loops, state management, collision detection, 
+                                    and creating responsive user experiences. I learned how to balance different game mechanics to create interesting strategic 
+                                    choices - for example, the parry system rewards precise timing by allowing players to counter attacks, but missing a parry 
+                                    leaves you vulnerable.
+                                </p>
+                                
+                                <h3>Technical Implementation</h3>
+                                <ul class="technical-details">
+                                    <li><strong>State Machine Architecture:</strong> Character states (idle, attacking, blocking, hit-stun) managed through finite state machine for clean animation flow</li>
+                                    <li><strong>Combat System:</strong> Frame-based hit detection with active frames, startup frames, and recovery frames for balanced combat timing</li>
+                                    <li><strong>Physics Engine:</strong> Custom 2D physics implementation for knockback, gravity, and momentum-based movement</li>
+                                    <li><strong>Input System:</strong> Real-time keyboard input processing with input buffering for responsive controls</li>
+                                    <li><strong>Parry Mechanics:</strong> Time-window based counterattack system rewards precise timing with frame advantage</li>
+                                </ul>
+
+                                <h3>Key Challenges</h3>
+                                <p>
+                                    Balancing the game mechanics was surprisingly difficult. Making the parry system work required careful tuning of the 
+                                    timing window - too large and it becomes overpowered, too small and no one will use it. I also had to figure out how to 
+                                    make the combat feel responsive while preventing button mashing from being effective. The solution was implementing 
+                                    recovery frames after attacks, forcing players to commit to their actions and think strategically about when to attack.
+                                </p>
+
+                                <div class="project-links">
+                                    <a href="https://github.com/Tonssov88/TurfWar" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                        </svg>
+                                        View on GitHub
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="project-detail-card">
-                    <div class="project-content-wrapper">
-                        <div class="project-info">
-                            <div class="project-header">
+
+                <!-- Project 5: Q-ARM End-Effector -->
+                <div class="project-accordion-item">
+                    <div class="project-accordion-header">
+                        <div class="project-header-content">
+                            <div class="project-thumbnail">
+                                <img src="assets/qarm-effector.jpg" alt="Q-ARM End-Effector">
+                            </div>
+                            <div class="project-title-section">
+                                <h2>Q-ARM Robot End-Effector Design</h2>
+                                <p class="project-summary">Lightweight end-effector design optimized for weight reduction and structural integrity</p>
+                                <div class="project-tags">
+                                    <span class="tag">CAD</span>
+                                    <span class="tag">Autodesk Inventor</span>
+                                    <span class="tag">Mechanical Design</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="accordion-toggle" aria-label="Expand project details">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="project-accordion-content">
+                        <div class="project-expanded-layout">
+                            <div class="project-image-large">
+                                <img src="assets/qarm-effector.jpg" alt="Q-ARM End-Effector">
+                            </div>
+                            <div class="project-details">
+                                <h3>Project Overview</h3>
+                                <p>
+                                    This project was part of my first-year engineering coursework at McMaster University. The task was to design a 
+                                    lightweight end-effector for the Q-ARM robotic platform used in our lab. The design needed to minimize weight while 
+                                    maintaining sufficient structural strength to handle the loads experienced during operation. Weight reduction was 
+                                    critical because lighter end-effectors reduce the torque requirements on the robot's joints and improve overall 
+                                    performance and accuracy.
+                                </p>
+                                <p>
+                                    I approached this as an optimization problem, using CAD software to iterate through multiple designs. Each iteration 
+                                    involved removing material from non-critical areas, adding reinforcement ribs where stress analysis showed high loads, 
+                                    and testing the design virtually before prototyping. This taught me the importance of design iteration and how to 
+                                    balance competing requirements in engineering projects.
+                                </p>
+                                
+                                <h3>Technical Implementation</h3>
+                                <ul class="technical-details">
+                                    <li><strong>CAD Modeling:</strong> Autodesk Inventor used for parametric 3D modeling with design intent captured in sketch constraints</li>
+                                    <li><strong>Weight Optimization:</strong> Iterative material removal from low-stress regions while maintaining structural integrity</li>
+                                    <li><strong>Geometric Analysis:</strong> Careful attention to potential interference points and range of motion limitations</li>
+                                    <li><strong>Design Iteration:</strong> Multiple design revisions based on testing and analysis to refine geometry</li>
+                                    <li><strong>Manufacturing Considerations:</strong> Design optimized for 3D printing with consideration for print orientation and support structures</li>
+                                </ul>
+
+                                <h3>Key Challenges</h3>
+                                <p>
+                                    The main challenge was finding the right balance between weight and strength. Removing too much material made the part 
+                                    flexible and weak, but leaving too much material defeated the purpose of the optimization. I had to learn to think 
+                                    critically about where forces would be concentrated and design accordingly. Another challenge was avoiding geometric 
+                                    interference - ensuring the end-effector didn't collide with other parts of the robot during its full range of motion.
+                                </p>
+
+                                <div class="project-links">
+                                    <a href="https://github.com/Tonssov88" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                        </svg>
+                                        View on GitHub
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Blue Bottle -->
+                <div class="project-accordion-item">
+                    <div class="project-accordion-header">
+                        <div class="project-header-content">
+                            <div class="project-thumbnail">
+                                <img src="assets/blue-bottle.png" alt="Blue Bottle Recycling App">
+                            </div>
+                            <div class="project-title-section">
                                 <h2>Blue Bottle - Gamified Recycling App</h2>
-                                <span class="project-date">WinHacks 2022</span>
-                            </div>
-                            <div class="project-tags">
-                                <span class="tag">Figma</span>
-                                <span class="tag">UI/UX Design</span>
-                                <span class="tag">Computer Vision</span>
-                                <span class="tag">Hackathon Winner</span>
-                            </div>
-                            <p class="project-description">
-                                Winner of Most Social Impact at WinHacks 2022. Designed a gamified recycling app that 
-                                rewards users for recycling water bottles through points, prizes, and social challenges. 
-                                Created comprehensive UI/UX designs and user flows to encourage competition and sustained 
-                                engagement in environmental sustainability.
-                            </p>
-                            <div class="project-challenges">
-                                <h4>Technical Challenges Solved:</h4>
-                                <ul>
-                                    <li>Designed core UI/UX and complete user flows in Figma for intuitive user experience</li>
-                                    <li>Developed gamification mechanics including point systems and social challenges to drive engagement</li>
-                                    <li>Explored computer vision solutions for automated bottle validation and recycling verification</li>
-                                    <li>Created accessible, polished prototype focused on maximizing social and environmental impact</li>
-                                    <li>Addressed key challenge of verifying authentic recycling actions to prevent system abuse</li>
-                                </ul>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://devpost.com/software/bluebottle-dy6ouw" target="_blank" rel="noopener noreferrer" class="btn btn-small btn-secondary">View on Devpost</a>
-                                <a href="https://www.figma.com" target="_blank" rel="noopener noreferrer" class="btn btn-small btn-secondary">Figma Design</a>
+                                <p class="project-summary">WinHacks 2022 winner: Gamified app encouraging recycling through competition and rewards</p>
+                                <div class="project-tags">
+                                    <span class="tag">Figma</span>
+                                    <span class="tag">UI/UX Design</span>
+                                    <span class="tag">Hackathon Winner</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="project-image-container">
-                            <img src="assets/blue-bottle.png" alt="Blue Bottle Recycling App">
+                        <button class="accordion-toggle" aria-label="Expand project details">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="project-accordion-content">
+                        <div class="project-expanded-layout">
+                            <div class="project-image-large smaller">
+                                <img src="assets/blue-bottle.png" alt="Blue Bottle Recycling App">
+                            </div>
+                            <div class="project-details">
+                                <h3>Project Overview</h3>
+                                <p>
+                                    Blue Bottle won the Most Social Impact award at WinHacks 2022. The concept addresses the problem of low recycling 
+                                    rates among young people by turning recycling into a social, competitive game. Users earn points for recycling water 
+                                    bottles, compete with friends on leaderboards, complete challenges, and unlock rewards. The app uses gamification 
+                                    psychology to make environmental action engaging and habit-forming.
+                                </p>
+                                <p>
+                                    My role focused on UI/UX design and the overall user experience strategy. I designed the complete user flow in Figma, 
+                                    from onboarding through daily usage scenarios. The challenge was making the app simple enough for quick interactions 
+                                    (since users would often be at recycling bins) while including enough depth to maintain long-term engagement through 
+                                    challenges, achievements, and social features.
+                                </p>
+                                
+                                <h3>Technical Implementation</h3>
+                                <ul class="technical-details">
+                                    <li><strong>UI/UX Design:</strong> Complete user interface and user flows designed in Figma with focus on accessibility and intuitive navigation</li>
+                                    <li><strong>Gamification Mechanics:</strong> Point system, achievement badges, daily challenges, and social leaderboards to drive engagement</li>
+                                    <li><strong>Verification System:</strong> Explored computer vision solutions for automated bottle recognition and recycling verification</li>
+                                    <li><strong>Social Features:</strong> Friend challenges and group competitions to leverage social pressure for positive behavior change</li>
+                                    <li><strong>Reward Integration:</strong> Partnership framework with local businesses to offer tangible rewards for recycling points</li>
+                                </ul>
+
+                                <h3>Key Challenges</h3>
+                                <p>
+                                    The biggest challenge was designing a verification system to prevent cheating. How do you confirm someone actually 
+                                    recycled a bottle versus just taking pictures of bottles? We explored several solutions including QR codes on bottles, 
+                                    computer vision to detect bottle types, and location-based verification at recycling centers. Another challenge was 
+                                    designing the reward system to be motivating without being the only reason people use the app - we wanted to create 
+                                    genuine behavioral change, not just transactional rewards.
+                                </p>
+
+                                <div class="project-links">
+                                    <a href="https://devpost.com/software/bluebottle-dy6ouw" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                        </svg>
+                                        View on Devpost
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
