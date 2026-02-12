@@ -1521,3 +1521,31 @@ body {
         font-size: 0.9rem;
     }
 }
+/* Award Photos */
+.award-photos {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.award-photo {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: var(--bg-secondary);
+}
+
+.award-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.award-caption {
+    padding: var(--spacing-sm);
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    background-color: var(--bg-primary);
+    margin: 0;
+}
