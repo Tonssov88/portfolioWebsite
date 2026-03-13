@@ -203,6 +203,106 @@
                     </div>
                 </div>
 
+                <!-- Project 3: BlindSpot -->
+                <div class="project-accordion-item">
+                    <div class="project-accordion-header">
+                        <div class="project-header-content">
+                            <div class="project-thumbnail">
+                                <img src="assets/blindspot.png" alt="BlindSpot App">
+                            </div>
+                            <div class="project-title-section">
+                                <h2>BlindSpot - AI Navigation for Visually Impaired</h2>
+                                <p class="project-summary">2x Mac-a-Thon 2026 Winner: Accessibility-first navigation app with AI voice guidance and real-time obstacle detection</p>
+                                <div class="project-tags">
+                                    <span class="tag">Flutter</span>
+                                    <span class="tag">AI Voice Agent</span>
+                                    <span class="tag">Gemini API</span>
+                                    <span class="tag">LiveKit</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="accordion-toggle" aria-label="Expand project details">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="project-accordion-content">
+                        <div class="project-expanded-layout">
+                            <div class="project-image-large">
+                                <img src="assets/blindspot.png" alt="BlindSpot App">
+                                <div class="award-photos">
+                                    <div class="award-photo">
+                                        <img src="assets/blindspot-backboard-award.jpg" alt="Best Use of Backboard.io Award">
+                                        <p class="award-caption">Best Use of Backboard.io</p>
+                                    </div>
+                                    <div class="award-photo">
+                                        <img src="assets/blindspot-elevenlabs-award.jpg" alt="Best Use of ElevenLabs Award">
+                                        <p class="award-caption">Best Use of ElevenLabs</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-details">
+                                <h3>Project Overview</h3>
+                                <p>
+                                    BlindSpot won two awards at GDG McMaster's Mac-a-Thon 2026: Best Use of Backboard.io and Best Use of ElevenLabs. 
+                                    The inspiration for this project came from one of my teammates, who had a personal encounter with a visually impaired 
+                                    person stuck navigating McMaster's campus. This experience opened my eyes to how modern urban environments often lack 
+                                    proper accessibility features, and I wanted to build something that could genuinely help.
+                                </p>
+                                <p>
+                                    I worked with my team to create an accessibility-first navigation app that uses a mobile phone's camera and GPS to 
+                                    provide real-time voice guidance through an AI agent. The system delivers turn-by-turn directions, announces obstacles, 
+                                    and responds to voice queries - all without requiring users to look at a screen. I helped transform navigation into a 
+                                    conversational experience where users can ask questions, receive proactive alerts about obstacles, and get haptic 
+                                    feedback when approaching dangers. We built the entire system in just 24 hours with support for 32 languages, working 
+                                    as complete strangers who rapidly aligned on roles to deliver a functional prototype.
+                                </p>
+                                
+                                <h3>Technical Implementation</h3>
+                                <ul class="technical-details">
+                                    <li><strong>Mobile Application:</strong> I developed the Flutter-based Android app with access to camera, microphone, GPS, and haptic feedback for comprehensive navigation assistance</li>
+                                    <li><strong>AI Voice Agent:</strong> Integrated Gemini Live API to create a real-time conversational interface with natural dialogue and context-aware responses</li>
+                                    <li><strong>Visual Processing:</strong> Implemented camera feed processing through Gemini API for real-time obstacle detection independent of GPS data</li>
+                                    <li><strong>Communication Layer:</strong> Set up LiveKit as a low-latency streaming backbone for audio and visual data between the mobile app and cloud AI services</li>
+                                    <li><strong>Natural Speech:</strong> Configured ElevenLabs text-to-speech to deliver clear, natural voice guidance in 32 languages</li>
+                                    <li><strong>Haptic Alerts:</strong> Developed Android vibration system providing tactile feedback when obstacles are detected</li>
+                                </ul>
+
+                                <h3>Key Challenges</h3>
+                                <p>
+                                    Implementing reliable object detection proved difficult - I had to work on precise calibration to recognize obstacles 
+                                    and determine their proximity in real-time while balancing responsiveness with accuracy. Another major challenge was 
+                                    iOS limitations. I discovered that implementing haptic feedback on iOS faced strict system constraints and reliance on 
+                                    predefined vibration patterns, while Android offered much greater flexibility. I focused our initial demo on Android 
+                                    to deliver robust haptic navigation features where I had direct hardware access.
+                                </p>
+                                <p>
+                                    As complete strangers at the start of the hackathon, coordinating effectively was challenging. I had to quickly learn 
+                                    Flutter and LiveKit while helping integrate multiple AI APIs. We delegated roles carefully and managed parallel 
+                                    development streams under a tight 24-hour timeline. I made smart tradeoffs between features and polish, prioritizing 
+                                    core accessibility functionality. Despite these constraints, I'm proud that we built a working system that genuinely 
+                                    improves navigation for visually impaired users.
+                                </p>
+
+                                <div class="project-links">
+                                    <a href="https://github.com/benz16107/BLINDSPOT" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                        </svg>
+                                        View on GitHub
+                                    </a>
+                                    <a href="https://devpost.com/software/blindspot-zs7dwq" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                        </svg>
+                                        View on Devpost
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <!-- Project 3: Gesture Car -->
                 <div class="project-accordion-item">
                     <div class="project-accordion-header">
@@ -277,7 +377,7 @@
                     </div>
                 </div>
 
-                <!-- Project 3: 8-Bit Computer -->
+                <!-- Project 4: 8-Bit Computer -->
                 <div class="project-accordion-item">
                     <div class="project-accordion-header">
                         <div class="project-header-content">
@@ -350,7 +450,7 @@
                     </div>
                 </div>
 
-                <!-- Project 4: Turf War -->
+                <!-- Project 5: Turf War -->
                 <div class="project-accordion-item">
                     <div class="project-accordion-header">
                         <div class="project-header-content">
@@ -423,7 +523,7 @@
                     </div>
                 </div>
 
-                <!-- Project 5: Q-ARM End-Effector -->
+                <!-- Project 6: Q-ARM End-Effector -->
                 <div class="project-accordion-item">
                     <div class="project-accordion-header">
                         <div class="project-header-content">
@@ -497,7 +597,7 @@
                     </div>
                 </div>
 
-                <!-- Project 6: Blue Bottle -->
+                <!-- Project 7: Blue Bottle -->
                 <div class="project-accordion-item">
                     <div class="project-accordion-header">
                         <div class="project-header-content">
