@@ -23,87 +23,26 @@ if (navToggle && navLinks) {
     });
 }
 
-// Skills Expansion Functionality
+// Project Accordion Functionality
 document.addEventListener('DOMContentLoaded', () => {
-    const skillItems = document.querySelectorAll('.skill-item');
-
-    skillItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // Close other skills in the same category
-            const category = this.closest('.skill-category-large');
-            if (category) {
-                const siblingSkills = category.querySelectorAll('.skill-item');
-                
-                siblingSkills.forEach(skill => {
-                    if (skill !== this) {
-                        skill.classList.remove('active');
-                    }
-                });
-            }
-            
-            // Toggle current skill
-            this.classList.toggle('active');
-        });
-    });
-
-    // Project Accordion Functionality
     const accordionHeaders = document.querySelectorAll('.project-accordion-header');
-    
+
     accordionHeaders.forEach(header => {
         header.addEventListener('click', function() {
             const accordionItem = this.closest('.project-accordion-item');
-            const isActive = accordionItem.classList.contains('active');
-            
+
             // Close all other accordions
             document.querySelectorAll('.project-accordion-item').forEach(item => {
                 if (item !== accordionItem) {
                     item.classList.remove('active');
                 }
             });
-            
+
             // Toggle current accordion
             accordionItem.classList.toggle('active');
         });
     });
 });
-
-// Contact Form Handler (informational only for static site)
-const sendMessageBtn = document.getElementById('sendMessage');
-
-if (sendMessageBtn) {
-    sendMessageBtn.addEventListener('click', () => {
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-
-        if (!name || !email || !subject || !message) {
-            alert('Please fill in all fields before sending.');
-            return;
-        }
-
-        if (!isValidEmail(email)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-
-        // Since this is a static site, open email client
-        const mailtoLink = `mailto:anthonyatanassov@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`;
-        window.location.href = mailtoLink;
-
-        // Clear form
-        document.getElementById('name').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('subject').value = '';
-        document.getElementById('message').value = '';
-    });
-}
-
-// Email validation helper
-function isValidEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -137,10 +76,10 @@ const fadeObserver = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Apply fade-in to project cards and experience cards
+// Apply fade-in to experience and featured project cards
 document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.project-card, .project-detail-card, .experience-card, .skill-category-large, .featured-project-item');
-    
+    const cards = document.querySelectorAll('.experience-card, .featured-project-item');
+
     cards.forEach(card => {
         fadeObserver.observe(card);
     });
