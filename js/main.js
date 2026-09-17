@@ -23,27 +23,6 @@ if (navToggle && navLinks) {
     });
 }
 
-// Project Accordion Functionality
-document.addEventListener('DOMContentLoaded', () => {
-    const accordionHeaders = document.querySelectorAll('.project-accordion-header');
-
-    accordionHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            const accordionItem = this.closest('.project-accordion-item');
-
-            // Close all other accordions
-            document.querySelectorAll('.project-accordion-item').forEach(item => {
-                if (item !== accordionItem) {
-                    item.classList.remove('active');
-                }
-            });
-
-            // Toggle current accordion
-            accordionItem.classList.toggle('active');
-        });
-    });
-});
-
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -83,4 +62,48 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach(card => {
         fadeObserver.observe(card);
     });
+});
+
+// Featured Projects Carousel (Home Page)
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('projectCarousel');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('.carousel-track');
+    const slides = track.querySelectorAll('.carousel-slide');
+    const prevBtn = carousel.querySelector('.carousel-prev');
+    const nextBtn = carousel.querySelector('.carousel-next');
+
+    let current = 0;
+    const total = slides.length;
+    let timer = null;
+    const INTERVAL = 5000;
+
+    function goTo(index) {
+        current = (index + total) % total;
+        track.style.transform = `translateX(-${current * 100}%)`;
+    }
+
+    function nextSlide() { goTo(current + 1); }
+    function prevSlide() { goTo(current - 1); }
+
+    function startAuto() {
+        stopAuto();
+        timer = setInterval(nextSlide, INTERVAL);
+    }
+
+    function stopAuto() {
+        if (timer) {
+            clearInterval(timer);
+            timer = null;
+        }
+    }
+
+    if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAuto(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAuto(); });
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    startAuto();
 });
