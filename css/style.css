@@ -1074,6 +1074,28 @@ body {
     .experience-date {
         align-self: flex-start;
     }
+
+    .experience-info {
+        display: contents;
+    }
+
+    .experience-content-wrapper {
+        grid-template-columns: 1fr;
+        row-gap: var(--spacing-md);
+    }
+
+    .experience-header {
+        margin-bottom: 0;
+    }
+
+    .experience-image-container {
+        order: 1;
+        min-height: 200px;
+    }
+
+    .experience-content {
+        order: 2;
+    }
 }
 
 @media (max-width: 480px) {
