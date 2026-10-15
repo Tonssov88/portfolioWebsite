@@ -58,18 +58,17 @@
                         <div class="project-card-full-section">
                             <h3>Project Overview</h3>
                             <p>
-                                This project implements a complete robot arm control system combining embedded firmware with desktop visualization.
-                                The Arduino runs a real-time inverse kinematics engine that converts 3D coordinates to joint angles and controls
+                                This project implements a robot arm control system which can be controlled with a desktop program that doubles as a visualization.
+                                The Arduino runs real-time inverse kinematics that converts 3D coordinates to joint angles and controls
                                 servos with smooth interpolation. What makes this project unique is the custom desktop dashboard built with Raylib
                                 that provides interactive 3D visualization - you can literally click and drag the end effector in 3D space, and the
-                                physical robot arm moves in real-time to match.
+                                physical robot arm moves to match.
                             </p>
                             <p>
-                                The system achieves ±2mm positioning accuracy across a 210mm workspace using a geometric inverse kinematics solution.
-                                The Arduino firmware implements Cartesian-space path planning with 20-step interpolation for fluid movement, while
-                                the desktop GUI provides intuitive drag-and-drop control alongside precise numerical coordinate input. Serial
-                                communication at 115200 baud ensures seamless PC-to-robot coordination with minimal latency.
-                            </p>
+                                The system achieves ±2mm positioning accuracy across a 210mm workspace using a inverse kinematics solver I did the math for.
+                                The Arduino program also implements path planning through 3D space to make smooth movements. 20 in-between positions are interpolated 
+                                in order to produce fluid motion, while the desktop GUI provides intuitive drag-and-drop control alongside precise numerical coordinate input. 
+                                Serial communication at 115200 baud connects the desktop to the Arduino and is then parsed into commands by the Arduino.                              </p>
                         </div>
                         <div class="project-card-full-section">
                             <h3>Technical Implementation</h3>
@@ -85,19 +84,16 @@
                         <div class="project-card-full-section">
                             <h3>Key Challenges</h3>
                             <p>
-                                Building the GUI was a major learning curve. I had to implement ray casting to convert mouse clicks into 3D world
-                                coordinates, handle orbital camera controls with quaternions, and render the arm in real-time while maintaining
-                                smooth serial communication. The trickiest part was making the drag-and-drop feel natural - I needed to constrain
-                                the end effector to the robot's reachable workspace while the user dragged it around. If they tried to move it
+                                Building the GUI was a major learning curve since I wanted an experience similar to professional 3D modelling software. 
+                                I had to implement ray casting to convert mouse clicks into 3D world coordinates, handle orbital camera controls with quaternions, 
+                                and render the arm in real-time while maintaining smooth serial communication. The trickiest part was making the drag-and-drop feel 
+                                natural which required constraining  the end effector to the robot's reachable workspace while the user dragged it around. If they tried to move it
                                 somewhere impossible, the system had to smoothly clamp to the nearest valid position rather than just failing.
                             </p>
                             <p>
                                 On the embedded side, debugging the inverse kinematics was challenging. Small errors in the geometric derivations
-                                would cause the arm to move to incorrect positions or twist into singularities where the elbow "flipped"
-                                unexpectedly. I had to carefully verify each step of the mathematical solution and add elbow angle constraints
-                                to prevent self-collisions. The interpolation system also required careful tuning - too fast and the servos would
-                                jitter, too slow and the motion felt sluggish. Running everything within the Arduino's 2KB RAM constraint required
-                                memory-optimized code and non-blocking architecture for responsive control.
+                                would cause the arm to move to incorrect positions. I had to carefully verify each step of the mathematical solution and add elbow angle constraints
+                                to prevent self-collisions. The interpolation system also required careful tuning to not feel too sluggish or jerky that caused instability.
                             </p>
                         </div>
                     </div>
@@ -118,8 +114,9 @@
                         <p class="project-summary">Custom 2D racing simulator with Deep Q-Network agent trained using C++ and libtorch</p>
                         <div class="project-tags">
                             <span class="tag">C++</span>
-                            <span class="tag">Reinforcement Learning</span>
                             <span class="tag">PyTorch</span>
+                            <span class="tag">Reinforcement Learning</span>
+                            <span class="tag">Raylib</span>
                             <span class="tag">DQN</span>
                         </div>
                     </header>
@@ -140,8 +137,6 @@
                                 The simulator features custom physics including acceleration, drag, steering dynamics, and collision detection with both
                                 walls and grass. A checkpoint and lap system tracks progress, while the DQN agent learns optimal racing lines through
                                 trial and error. Training runs headless for performance, while trained models can be visualized in real-time using Raylib.
-                                The project demonstrates the complete pipeline from environment design to agent training to behavioral analysis, showing
-                                how autonomous racing behavior emerges from reward shaping and experience replay.
                             </p>
                         </div>
                         <div class="project-card-full-section">
@@ -166,9 +161,7 @@
                                 Another challenge was managing the exploration-exploitation tradeoff. I observed an interesting training pattern: early
                                 models drove conservatively but reliably completed laps, while later training often led to performance degradation as the
                                 agent over-optimized for speed and started crashing. The solution was fine-tuning from stable checkpoints with reduced
-                                learning rates and lower epsilon floors, which significantly improved both speed and stability. This taught me that
-                                reinforcement learning isn't always monotonically improving - sometimes you need to step back and refine rather than
-                                continue pushing forward.
+                                learning rates and lower epsilon floors, which significantly improved both speed and stability.
                             </p>
                         </div>
                     </div>
@@ -354,12 +347,6 @@
                                 counter, instruction decoder, and RAM. The goal was to understand computer architecture at the hardware level by
                                 implementing each component from basic logic gates and seeing how they work together to execute programs.
                             </p>
-                            <p>
-                                The system can execute a custom assembly language I designed, with instructions for arithmetic operations, memory access,
-                                conditional branching, and I/O. Building this computer taught me how high-level programming languages are ultimately
-                                translated down to simple electrical signals controlling logic gates. Every line of code, every function call, every
-                                loop - it all reduces to patterns of voltage changes across wires.
-                            </p>
                         </div>
                         <div class="project-card-full-section">
                             <h3>Technical Implementation</h3>
@@ -417,7 +404,7 @@
                             <p>
                                 This project was my introduction to game development and taught me about game loops, state management, collision detection,
                                 and creating responsive user experiences. I learned how to balance different game mechanics to create interesting strategic
-                                choices - for example, the parry system rewards precise timing by allowing players to counter attacks, but missing a parry
+                                choices. For example, the parry system rewards precise timing by allowing players to counter attacks, but missing a parry
                                 leaves you vulnerable.
                             </p>
                         </div>
